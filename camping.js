@@ -12,18 +12,18 @@ var googleCustomEngine = '016068319718830097589:iw357dqkr-a'
 
 
 //API call using jquery
-
+/*
 $.ajax({
 
     url: 'http://api.amp.active.com/camping/campgrounds/?pstate=TX&api_key=bc9t36mudawubc2ajzkzne38',
     type: 'GET',
     crossDomain: true,
-    dataType: 'text',
+    dataType: 'xml',
     success: function(respond) {
         var x = respond
         /*var y = x.getElementsByTagName("resultset")[0]
         var z = y.getElementsByTagName('result')[0].getAttribute('faciltyPhoto')
-        */
+        
         //console.log(x)
     
         
@@ -33,34 +33,49 @@ $.ajax({
     error: function() { alert('Failed!'); },
 });
 
-
-// google image search function
-// script that needs to be added to html: <script src="https://www.google.com/jsapi"></script>
-google.load('search', '1');
-google.setOnLoadCallback(OnLoad);
-var search;
-
-    //i suggest instead of this to make keywords list so first to pick random keyword than to do search and pick random image
-var keyword = 'mountains';
-
-    function OnLoad()
-    {
-        search = new google.search.ImageSearch();
-
-        search.setSearchCompleteCallback(this, searchComplete, null);
-
-        search.execute(keyword);
+*/
+function hndlr(response) {
+    for (var i = 0; i < response.items.length; i++) {
+      var item = response.items[i];
+      // in production code, item.htmlTitle should have the HTML entities escaped.
+      document.getElementById("content").innerHTML += "<br>" + item.htmlTitle;
     }
+  }
 
-    function searchComplete()
-    {
-        if (search.results && search.results.length > 0)
-        {
-            //you will probably use jQuery and something like: $('body').css('background-image', "url('" + search.results[rnd]['url'] + "')");
-            console.log(search.results);
-        }
-    }
+/*
+  var xhr = new XMLHttpRequest();
+  xhr.open("GET", "https://www.googleapis.com/customsearch/v1?q=cars&cx=016068319718830097589%3Aiw357dqkr-a&imgColorType=color&num=3&searchType=image&key=AIzaSyBDvkJWRxyi3U8yPxLoJClo2Zm9mPyjRUo", false);
+  xhr.send();
+  console.log(xhr.status);
+console.log(xhr.statusText);
+*/
 
+function campImg(campName) {
+    var t= campName;
+$.ajax({
+    url: "https://www.googleapis.com/customsearch/v1?q="+ t + "&cx=016068319718830097589%3Aiw357dqkr-a&imgColorType=color&num=3&searchType=image&key=AIzaSyBDvkJWRxyi3U8yPxLoJClo2Zm9mPyjRUo",
+    type: 'GET',
+    crossDomain: true,
+    dataType: 'json',
+    success: function(respond) {
+        var x = respond
+        /*var y = x.getElementsByTagName("resultset")[0]
+        var z = y.getElementsByTagName('result')[0].getAttribute('faciltyPhoto')
+        */
+         console.log(x['items'][0]['link']);
+         var z = x['items'][0]['link']; 
+         var a = document.getElementById('info')
+         var b = document.createElement("IMG");
+         b.setAttribute("src",z);
+         a.appendChild(b);
 
-
- 
+       
+    
+        
+        
+        
+    },
+    error: function(){ alert('Failed!'); },
+});
+}
+campImg('car')
