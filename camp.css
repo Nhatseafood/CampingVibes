@@ -130,7 +130,8 @@ html, body{
  
 
  .slider-container {
-     max-width: 900px;
+     max-width: 1500px;
+     max-height: 700px;
      margin: 0 auto;
      padding: 20px;
 

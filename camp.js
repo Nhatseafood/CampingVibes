@@ -10,7 +10,7 @@ console.log("DOM is ready!")
     // });
     $('.slider').slick( {
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: 4,
         slidesToScroll: 1
         // asNavFor: '.bigSlider',
         // dots: true,
