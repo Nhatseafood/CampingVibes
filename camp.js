@@ -20,8 +20,26 @@ console.log("DOM is ready!")
     $('.campSlider').slick({
         infinite: true,
         slidesToShow: 3,
-        slidesToScroll: 1
+        slidesToScroll: 1,
+        autoplay: true,
+        autoplaySpeed: 2000,
         
+    });
+
+    $('#rei').click(function() {
+        window.location.href="https://www.rei.com/h/camping-and-hiking";
+    });
+
+    $('#aca').click(function() {
+        window.location.href="https://www.academy.com/";
+    });
+
+    $('#cab').click(function() {
+        window.location.href="https://www.cabelas.com/";
+    });
+
+    $('#campmor').click(function() {
+        window.location.href="https://www.campmor.com/";
     });
     
 });
