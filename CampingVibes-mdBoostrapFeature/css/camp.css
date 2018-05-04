@@ -23,7 +23,7 @@ html, body{
 
 }
  .background{
-    background-image: url(pic1.jpg);
+    background-image: url(../img/pic1.jpg);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -283,7 +283,7 @@ html, body{
 
 
 #rei{
-    background-image: url(rei.jpg);
+    background-image: url("../img/rei.jpg");
     height: 2em;
     width: 2em;
     background-repeat: no-repeat;
@@ -293,7 +293,7 @@ html, body{
 }
 
 #aca{
-    background-image: url(aca.jpg);
+    background-image: url("../img/aca.jpg");
     height: 2em;
     width: 2em;
     background-repeat: no-repeat;
@@ -302,7 +302,7 @@ html, body{
 }
 
 #cab {
-    background-image: url(cab.jpg);
+    background-image: url("../img/cab.jpg");
     height: 2em;
     width: 2em;
     background-repeat: no-repeat;
@@ -311,7 +311,7 @@ html, body{
 }
 
 #campmor {
-    background-image: url(campmor.jpg);
+    background-image: url("../img/campmor.jpg");
     height: 2em;
     width: 2em;
     background-repeat: no-repeat;
